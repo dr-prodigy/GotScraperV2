@@ -1,8 +1,9 @@
 ﻿Imports System.Security.Cryptography
 Imports System.Text
+Imports System.Drawing.Imaging
 
 Public Class ClassUtility
-    Public Function GetCRC32(ByVal fileName As String) As String
+    Public Shared Function GetCRC32(ByVal fileName As String) As String
         Try
             Dim FS As FileStream = New FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read, 8192)
             Dim CRC32Result As Integer = &HFFFFFFFF
@@ -48,7 +49,7 @@ Public Class ClassUtility
 
     End Function
 
-    Public Function GetMD5(ByVal fileName As String) As String
+    Public Shared Function GetMD5(ByVal fileName As String) As String
         Dim md5Hash As MD5 = MD5.Create()
         Dim data As Byte() '= md5Hash.ComputeHash(Encoding.UTF8.GetBytes(Input))
         Dim sBuilder = New StringBuilder
@@ -73,4 +74,39 @@ Public Class ClassUtility
 
     End Function
 
+    Public Shared Function ChangeOpacity(ByVal img As Image, ByVal opacityvalue As Single) As Bitmap
+
+        Dim bmp As New Bitmap(img.Width, img.Height)
+        Dim graphics__1 As Graphics = Graphics.FromImage(bmp)
+        Dim colormatrix As New ColorMatrix With {
+            .Matrix33 = opacityvalue
+        }
+
+        Dim imgAttribute As New ImageAttributes
+
+        imgAttribute.SetColorMatrix(colormatrix, ColorMatrixFlag.[Default], ColorAdjustType.Bitmap)
+        graphics__1.DrawImage(img, New Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, imgAttribute)
+        graphics__1.Dispose()
+
+        Return bmp
+    End Function
+
+    Public Shared Function GetBitmap(ByVal pCtrl As Control) As Drawing.Bitmap
+        Dim myBmp As New Bitmap(pCtrl.Width, pCtrl.Height)
+        Dim g As Graphics = Graphics.FromImage(myBmp)
+        Dim pt As Point = pCtrl.Parent.PointToScreen(pCtrl.Location)
+        g.CopyFromScreen(pt, Point.Empty, myBmp.Size)
+        g.Dispose()
+        Return myBmp
+    End Function
+
+    Public Shared Function GetControlImage(ByVal ctl As Control) As Bitmap
+        Dim bm As New Bitmap(ctl.Width, ctl.Height)
+        ctl.DrawToBitmap(bm, New Rectangle(0, 0, ctl.Width, ctl.Height))
+        Return bm
+    End Function
+
+    Public Shared Function ResizeImage(ByVal InputImage As Image, w As Integer, h As Integer) As Image
+        Return New Bitmap(InputImage, New Size(w, h))
+    End Function
 End Class

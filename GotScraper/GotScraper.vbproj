@@ -11,23 +11,29 @@
     <AssemblyName>GotScraper</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>ftp://ftp.flm.altervista.org/flm/</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <InstallUrl>\\localhost\flm\</InstallUrl>
+    <ProductName>FLM Feel Layout Manager</ProductName>
+    <PublisherName>Luca Pellegrino</PublisherName>
+    <SuiteName>GotScraper</SuiteName>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,14 +69,25 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>13E8B772F5E3941F00CFFF1BD7322FFCC65DFA09</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GotScraper_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>FLM.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Infragistics4.Shared.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.Misc.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinDataSource.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics4.Win.UltraWinEditors.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics4.Win.UltraWinGrid.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics4.Win.UltraWinListView.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics4.Win.v17.2, Version=17.2.20172.2006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="ArgbColorDialog">
+      <HintPath>..\..\csharp-ArgbColorDialog\csharp-ArgbColorDialog-844bf8f2cf5ed9fc355fcc68f7e90009e18ff927\ArgbColorDialog\bin\Release\ArgbColorDialog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -88,6 +105,7 @@
     <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="CutoutPro.Winforms" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -102,30 +120,36 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassMedia.vb" />
     <Compile Include="ClassUtility.vb" />
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormFLM.Designer.vb">
       <DependentUpon>FormFLM.vb</DependentUpon>
     </Compile>
     <Compile Include="FormFLM.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOptions.Designer.vb">
-      <DependentUpon>FormOptions.vb</DependentUpon>
+    <Compile Include="FormFLMAbout.Designer.vb">
+      <DependentUpon>FormFLMAbout.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormOptions.vb">
+    <Compile Include="FormFLMAbout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUtility.Designer.vb">
-      <DependentUpon>FormUtility.vb</DependentUpon>
+    <Compile Include="FormFLManteprimaV2.Designer.vb">
+      <DependentUpon>FormFLManteprimaV2.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormUtility.vb">
+    <Compile Include="FormFLManteprimaV2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFLMoptions.Designer.vb">
+      <DependentUpon>FormFLMoptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFLMoptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFLMtips.Designer.vb">
+      <DependentUpon>FormFLMtips.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFLMtips.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -151,24 +175,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormFLM.resx">
       <DependentUpon>FormFLM.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOptions.resx">
-      <DependentUpon>FormOptions.vb</DependentUpon>
+    <EmbeddedResource Include="FormFLMAbout.resx">
+      <DependentUpon>FormFLMAbout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUtility.resx">
-      <DependentUpon>FormUtility.vb</DependentUpon>
+    <EmbeddedResource Include="FormFLManteprimaV2.resx">
+      <DependentUpon>FormFLManteprimaV2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFLMoptions.resx">
+      <DependentUpon>FormFLMoptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFLMtips.resx">
+      <DependentUpon>FormFLMtips.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
@@ -176,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="GotScraper_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -193,11 +221,134 @@
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
+      <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\228462_configure_256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarTop1280x800.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bartop1280-800.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bianco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spray-paint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\test.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layout1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layout2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FLMRampage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FLMRampage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\228527_app_256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\228484_preview_256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\228488_vienna_256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paint button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anteprima button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layout1Marquee.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layout2Marquee.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anteprima.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FLMRampage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FLMRampage21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FLMRampage22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layout1Marquee1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layout2Marquee1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Release\Note di release.txt" />
+    <Content Include="bin\Release\Risoluzioni.txt" />
+    <Content Include="FLM.ico" />
+    <None Include="Resources\Add_grey_16x.png" />
+    <None Include="Resources\Add_16x.png" />
+    <None Include="Resources\Remove_16x.png" />
+    <None Include="Resources\Remove_color_16x.png" />
+    <None Include="Resources\Backwards_disabled_16x.png" />
+    <None Include="Resources\Forwards_disabled_16x.png" />
+    <None Include="Resources\Forwards_16x.png" />
+    <None Include="Resources\Backwards_16x.png" />
+    <None Include="Resources\Layout3Marquee.bmp" />
+    <None Include="Resources\Layout3.bmp" />
+    <None Include="Resources\InformationSymbol_16x.png" />
+    <None Include="Resources\HelpApplication_16x.png" />
+    <None Include="Resources\ConfigureComputer_16x.png" />
+    <None Include="Resources\PaintBrush_16x.png" />
+    <None Include="Resources\PreviewInRightPanel_16x.png" />
+    <None Include="Resources\Exit_16x.png" />
+    <None Include="Resources\Export_16x.png" />
+    <None Include="Resources\SaveAs_16x.png" />
+    <None Include="Resources\Save_grey_16x.png" />
+    <None Include="Resources\OpenFile_16x.png" />
+    <None Include="Resources\save button freccia.png" />
+    <None Include="Resources\reset1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
